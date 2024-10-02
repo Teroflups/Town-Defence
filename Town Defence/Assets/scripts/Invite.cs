@@ -39,6 +39,8 @@ public class Invite : MonoBehaviour
         {
             _currTimer = _maxTime;
         }
+        _counterWarrior.text = "Воин " + _warrior.ToString();
+        _counterPeasant.text = "Крестьянин " + _peasant.ToString();
     }
     public void AddWarrior()
     {
@@ -66,7 +68,7 @@ public class Invite : MonoBehaviour
         _plusWarrior = false;
         wheat.Farmer(-_priceOfWarrior);
         _warrior++;
-        _counterWarrior.text = "Воин " + _warrior.ToString();
+        
     }
     IEnumerator PeasantDelay()
     {
@@ -77,7 +79,7 @@ public class Invite : MonoBehaviour
         _plusPeasant = false;
         wheat.Farmer(-_priceOfFarmer);
         _peasant++;
-        _counterPeasant.text = "Крестьянин " + _peasant.ToString();
+        
 
     }
 }
