@@ -420,7 +420,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1192338112}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &574250568
@@ -593,7 +594,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.25, y: 0}
   m_AnchorMax: {x: 0.44875002, y: 0.13788632}
-  m_AnchoredPosition: {x: -0.5, y: 1.1481018}
+  m_AnchoredPosition: {x: -0.5, y: 1.1480713}
   m_SizeDelta: {x: 9.0488, y: 2.2959995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &742184818
@@ -751,7 +752,7 @@ MonoBehaviour:
   _maxTime: 2
   _currTimer: 0
   _wheat: 0
-  _plusWheat: 2
+  _plusWheat: 5
   _countWheat: {fileID: 1678595986}
 --- !u!114 &784374585
 MonoBehaviour:
@@ -824,6 +825,9 @@ MonoBehaviour:
   _counterPeasant: {fileID: 1543771299}
   _peasant: 0
   _peasantWheat: 2
+  clockTimer: {fileID: 0}
+  _maxTime: 10
+  _currTimer: 0
 --- !u!1 &1192338108
 GameObject:
   m_ObjectHideFlags: 0
@@ -921,7 +925,7 @@ RectTransform:
   - {fileID: 784374583}
   - {fileID: 1953193326}
   - {fileID: 299886810}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 519420032}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -964,7 +968,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5387501, y: 0.020400755}
   m_AnchorMax: {x: 0.74, y: 0.13788632}
-  m_AnchoredPosition: {x: 2, y: -1.8518982}
+  m_AnchoredPosition: {x: 2, y: -1.8519287}
   m_SizeDelta: {x: 7.0487976, y: 10.296204}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1214004625
@@ -1431,7 +1435,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.57124996, y: 0.89138925}
   m_AnchorMax: {x: 0.96875, y: 0.95661086}
-  m_AnchoredPosition: {x: 0.91000366, y: -1.3009949}
+  m_AnchoredPosition: {x: 0.90997314, y: -1.3009949}
   m_SizeDelta: {x: 1.8124084, y: 2.6015015}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1953193327
@@ -1612,4 +1616,3 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 1377645398}
-  - {fileID: 1192338112}
