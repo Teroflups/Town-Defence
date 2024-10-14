@@ -16,70 +16,75 @@ public class Invite : MonoBehaviour
     [SerializeField] public float _peasant;
     [SerializeField] public float _peasantWheat;
     [SerializeField] private Image clockTimer;
+    [SerializeField] private Image clockTimer2;
     [SerializeField] private float _maxTime = 10f;
+    [SerializeField] private float _maxTime2 = 10f;
     [SerializeField] private float _currTimer;
+    [SerializeField] private float _currTimer2;
     [SerializeField] int _priceOfFarmer;
     [SerializeField] int _priceOfWarrior;
+    private bool _isPlusP = false;
+    private bool _isPlusW = false;
+    [SerializeField] private Button _buttonP;
+    [SerializeField] private Button _buttonW;
 
     private bool _plusWarrior = false;
     private bool _plusPeasant = false;
     void Start()
     {
         wheat = GetComponent<Timer>();
+        _currTimer = _maxTime;
+        _currTimer2 = _maxTime2;
     }
 
     void Update()
     {
-        if (_currTimer >= 0)
-        {
-            _currTimer -= Time.deltaTime;
-            clockTimer.fillAmount = _currTimer / _maxTime;
-        }
-        else
-        {
-            _currTimer = _maxTime;
-        }
-        _counterWarrior.text = "Воин " + _warrior.ToString();
-        _counterPeasant.text = "Крестьянин " + _peasant.ToString();
+        AddWarrior();
+        AddPeasant();
     }
     public void AddWarrior()
     {
-        if(wheat._wheat - _priceOfWarrior >= 0)
+        if (_currTimer >= 0 && _isPlusW)
         {
-            if (_plusWarrior == true) return;
-            StartCoroutine(WarriorDelay());
+            _currTimer -= Time.deltaTime;
         }
-      
-    }
-    public void addPeasant()
-    {
-        if (wheat._wheat - _priceOfFarmer  >= 0)
+        else if (_isPlusW && _currTimer <= 0)
         {
-            if(_plusPeasant == true) return;
-            StartCoroutine(PeasantDelay());
+            _currTimer = _maxTime;
+            _warrior++;
+            _isPlusW = false;
+            _buttonW.interactable = true;
         }
-    }
-    IEnumerator WarriorDelay()
-    {
-        _plusWarrior = true;
-        warriorButton.interactable = false;
-        yield return new WaitForSeconds(2);
-        warriorButton.interactable = true;
-        _plusWarrior = false;
-        wheat.Farmer(-_priceOfWarrior);
-        _warrior++;
-        
-    }
-    IEnumerator PeasantDelay()
-    {
-        _plusPeasant = true;
-        peasantButton.interactable = false;
-        yield return new WaitForSeconds(2);
-        peasantButton.interactable= true;
-        _plusPeasant = false;
-        wheat.Farmer(-_priceOfFarmer);
-        _peasant++;
-        
+        _counterWarrior.text = "Воин " + _warrior.ToString();
+        clockTimer.fillAmount = _currTimer / _maxTime;
 
     }
+    public void AddPeasant()
+    {
+
+        if (_currTimer2 >= 0 && _isPlusP)
+        {
+            _currTimer2 -= Time.deltaTime;
+        }
+        else if(_isPlusP && _currTimer2 <= 0)
+        {
+            _currTimer2 = _maxTime2;
+            _peasant++;
+            _isPlusP = false;
+            _buttonP.interactable = true;
+        }
+        _counterPeasant.text = "Крестьянин " + _peasant.ToString();
+        clockTimer2.fillAmount = _currTimer2 / _maxTime2;
+    }
+    public void PlusP()
+    {
+        _isPlusP = true;
+        _buttonP.interactable = false;
+    }
+    public void PlusW()
+    {
+        _isPlusW = true;
+        _buttonW.interactable= false;
+    }
+    
 }

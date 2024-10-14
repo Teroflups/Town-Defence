@@ -38,7 +38,6 @@ public class Timer : MonoBehaviour
     public void Farmer(int count)
     {
         _wheat += count;
-        _countWheat.text = "ѕшеница " + _wheat.ToString();
     }
   
 }
