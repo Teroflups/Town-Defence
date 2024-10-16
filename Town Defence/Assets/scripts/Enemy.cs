@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class Enemy : MonoBehaviour
     {
         invite = GetComponent<Invite>();
         _currTimer = _maxTime;
+        Time.timeScale = 1;
     }
 
     void Update()
@@ -53,5 +55,10 @@ public class Enemy : MonoBehaviour
             _enemy += Random.Range(10, 15);
         }
         _countEnemy.text = "Враг " + _enemy.ToString();
+    }
+
+    public void AfterWaste()
+    {
+        SceneManager.LoadScene(0);
     }
 }

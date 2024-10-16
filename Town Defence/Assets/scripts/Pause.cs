@@ -32,4 +32,6 @@ public class Pause : MonoBehaviour
         _stop.SetActive(true);
         _play.SetActive(false);
     }
+
+  
 }
